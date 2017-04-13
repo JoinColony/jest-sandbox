@@ -10,6 +10,11 @@ export class JestSandbox {
     this._mocks.push(mock);
     return mock;
   }
+  spyOn(...args) {
+    const mock = jest.spyOn(...args);
+    this._mocks.push(mock);
+    return mock;
+  }
   clear() {
     this._each('mockClear');
   }

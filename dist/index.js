@@ -36,6 +36,15 @@ var JestSandbox = exports.JestSandbox = function () {
       return mock;
     }
   }, {
+    key: 'spyOn',
+    value: function spyOn() {
+      var _jest2;
+
+      var mock = (_jest2 = jest).spyOn.apply(_jest2, arguments);
+      this._mocks.push(mock);
+      return mock;
+    }
+  }, {
     key: 'clear',
     value: function clear() {
       this._each('mockClear');

@@ -24,6 +24,21 @@ test('Keeps track of mocks', () => {
   expect(sandbox._mocks[0]).toBe(mock);
 });
 
+test('Supports spyOn', () => {
+  const sandbox = new JestSandbox();
+  class CoolClass {
+    hello() {
+      return 'hello';
+    }
+  }
+  const mock = sandbox.spyOn(CoolClass.prototype, 'hello');
+  const cool = new CoolClass();
+  cool.hello();
+  expect(mock).toHaveBeenCalled();
+  sandbox.clear();
+  expect(mock.mock.calls).toHaveLength(0);
+});
+
 test('Clears all mocks', () => {
   const sandbox = new JestSandbox();
   const mockA = sandbox.fn();
