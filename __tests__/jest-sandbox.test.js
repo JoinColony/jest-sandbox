@@ -1,4 +1,4 @@
-import createSandbox, { JestSandbox } from '..';
+import createSandbox, { JestSandbox } from '../index.js';
 
 test('Initialises correctly', () => {
   const sandbox = new JestSandbox();
