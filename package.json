@@ -13,6 +13,14 @@
     "sandbox",
     "testing"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoinColony/jest-sandbox.git"
+  },
+  "bugs": {
+    "url": "https://github.com/JoinColony/jest-sandbox/issues"
+  },
+  "homepage": "https://github.com/JoinColony/jest-sandbox",
   "author": "Christian Maniewski <chmanie@fastmail.com>",
   "license": "MIT",
   "devDependencies": {
