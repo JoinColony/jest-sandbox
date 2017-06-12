@@ -21,6 +21,9 @@ export class JestSandbox {
   reset() {
     this._each('mockReset');
   }
+  restore() {
+    this._each('mockRestore');
+  }
 }
 
 export default () => new JestSandbox();

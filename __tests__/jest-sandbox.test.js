@@ -66,3 +66,30 @@ test('Resets all mocks', () => {
   expect(x).toBeUndefined();
   expect(y).toBeUndefined();
 });
+
+test('Restores all spies', () => {
+  const sandbox = new JestSandbox();
+  class CoolClass {
+    hello() {
+      return 'hello';
+    }
+  }
+  const fn = sandbox.fn();
+  const spy = sandbox
+    .spyOn(CoolClass.prototype, 'hello')
+    .mockImplementation(() => 'yo, homie');
+  fn('a');
+  expect(fn).toBeCalledWith('a');
+  expect(fn.mock.calls).toHaveLength(1);
+  expect(fn.mock.instances).toHaveLength(1);
+  const cool = new CoolClass();
+  expect(cool.hello()).toBe('yo, homie');
+  expect(spy.mock.calls).toHaveLength(1);
+  expect(spy.mock.instances).toHaveLength(1);
+  sandbox.restore();
+  expect(fn.mock.calls).toHaveLength(1);
+  expect(fn.mock.instances).toHaveLength(1);
+  expect(cool.hello()).toBe('hello');
+  expect(spy.mock.calls).toHaveLength(1);
+  expect(spy.mock.instances).toHaveLength(1);
+});
