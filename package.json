@@ -1,6 +1,6 @@
 {
   "name": "jest-sandbox",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Simple sinon like sandbox for jest",
   "main": "./dist/index.js",
   "scripts": {
