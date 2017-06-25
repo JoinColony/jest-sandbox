@@ -66,3 +66,19 @@ test('Resets all mocks', () => {
   expect(x).toBeUndefined();
   expect(y).toBeUndefined();
 });
+
+test('Restores all spies', () => {
+  const sandbox = new JestSandbox();
+  class CoolClass {
+    hello() {
+      return 'hello';
+    }
+  }
+  const spy = sandbox
+    .spyOn(CoolClass.prototype, 'hello')
+    .mockImplementation(() => 'yo, homie');
+  const cool = new CoolClass();
+  expect(cool.hello()).toBe('yo, homie');
+  sandbox.restore();
+  expect(cool.hello()).toBe('hello');
+});

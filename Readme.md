@@ -76,8 +76,12 @@ Clears all spies in the sandbox. Actually calls `.mockClear()` on every spy it k
 
 Resets all spies in the sandbox. Actually calls `.mockReset()` on every spy it keeps track of.
 
+#### `sandbox.restore()`
+
+Restores all spies in the sandbox. Actually calls `.mockRestore()` on every spy it keeps track of.
+
 #### Note
-Keep in mind that you can still clear and reset the single spies manually, like you're used to.
+Keep in mind that you can still clear, reset and restore the single spies manually, like you're used to.
 
 ### Contribute
 
