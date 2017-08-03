@@ -21,7 +21,7 @@ describe('A cow 🐄', () => {
   const spyPoop = sandbox.spyOn(cow, 'poop');
 
   // Clear 'em all with one call
-  beforeEach(sandbox.clear);
+  beforeEach(() => sandbox.clear());
 
   test('Eats grass', () => {
     return cow.eatGrass.then(spyStomach).then(() => {
