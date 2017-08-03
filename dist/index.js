@@ -54,6 +54,11 @@ var JestSandbox = exports.JestSandbox = function () {
     value: function reset() {
       this._each('mockReset');
     }
+  }, {
+    key: 'restore',
+    value: function restore() {
+      this._each('mockRestore');
+    }
   }]);
 
   return JestSandbox;
