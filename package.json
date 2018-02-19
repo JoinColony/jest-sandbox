@@ -15,7 +15,8 @@
   "files": [
     "lib",
     "LICENSE",
-    "Readme.md"
+    "Readme.md",
+    "CODE_OF_CONDUCT.md"
   ],
   "keywords": [
     "jest",
