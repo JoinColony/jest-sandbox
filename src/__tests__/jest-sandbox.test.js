@@ -1,7 +1,11 @@
-import createSandbox, { JestSandbox } from '../index.js';
+/* @flow */
+/* eslint-env jest */
+/* eslint-disable no-underscore-dangle, class-methods-use-this */
+
+const createSandbox = require('..');
 
 test('Initialises correctly', () => {
-  const sandbox = new JestSandbox();
+  const sandbox = createSandbox();
   expect(sandbox._mocks).toEqual([]);
 });
 
@@ -11,7 +15,7 @@ test('Initialisation shortcut', () => {
 });
 
 test('Provides jest mocks', () => {
-  const sandbox = new JestSandbox();
+  const sandbox = createSandbox();
   const mock = sandbox.fn();
   mock('a');
   expect(jest.isMockFunction(mock)).toBeTruthy();
@@ -19,13 +23,13 @@ test('Provides jest mocks', () => {
 });
 
 test('Keeps track of mocks', () => {
-  const sandbox = new JestSandbox();
+  const sandbox = createSandbox();
   const mock = sandbox.fn();
   expect(sandbox._mocks[0]).toBe(mock);
 });
 
 test('Supports spyOn', () => {
-  const sandbox = new JestSandbox();
+  const sandbox = createSandbox();
   class CoolClass {
     hello() {
       return 'hello';
@@ -40,7 +44,7 @@ test('Supports spyOn', () => {
 });
 
 test('Clears all mocks', () => {
-  const sandbox = new JestSandbox();
+  const sandbox = createSandbox();
   const mockA = sandbox.fn();
   const mockB = sandbox.fn();
   mockA('a');
@@ -53,7 +57,7 @@ test('Clears all mocks', () => {
 });
 
 test('Resets all mocks', () => {
-  const sandbox = new JestSandbox();
+  const sandbox = createSandbox();
   const mockA = sandbox.fn(() => 'a');
   const mockB = sandbox.fn(() => 'b');
   const a = mockA();
@@ -68,13 +72,13 @@ test('Resets all mocks', () => {
 });
 
 test('Restores all spies', () => {
-  const sandbox = new JestSandbox();
+  const sandbox = createSandbox();
   class CoolClass {
     hello() {
       return 'hello';
     }
   }
-  const spy = sandbox
+  sandbox
     .spyOn(CoolClass.prototype, 'hello')
     .mockImplementation(() => 'yo, homie');
   const cool = new CoolClass();
