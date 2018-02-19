@@ -1,0 +1,11 @@
+{
+    "extends": "@colony/eslint-config-colony",
+    "env": {
+      "node": true
+    },
+    "settings": {
+    "import/resolver": {
+      "node": {}
+    }
+  }
+}

@@ -1,29 +1,35 @@
+/* @flow */
+/* eslint-env jest */
+
 export class JestSandbox {
+  _mocks: Array<Function>;
   constructor() {
     this._mocks = [];
   }
-  _each(method, ...args) {
+  _each(method: string, ...args: Array<any>): void {
     this._mocks.forEach(mock => mock[method](...args));
   }
-  fn(...args) {
+  fn(...args: Array<any>): Function {
     const mock = jest.fn(...args);
     this._mocks.push(mock);
     return mock;
   }
-  spyOn(...args) {
+  spyOn(...args: Array<any>): Function {
     const mock = jest.spyOn(...args);
     this._mocks.push(mock);
     return mock;
   }
-  clear() {
+  clear(): void {
     this._each('mockClear');
   }
-  reset() {
+  reset(): void {
     this._each('mockReset');
   }
-  restore() {
+  restore(): void {
     this._each('mockRestore');
   }
 }
 
-export default () => new JestSandbox();
+const createSandbox = () => new JestSandbox();
+
+export default createSandbox;

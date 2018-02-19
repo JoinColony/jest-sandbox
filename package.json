@@ -4,8 +4,11 @@
   "description": "Simple sinon like sandbox for jest",
   "main": "./dist/index.js",
   "scripts": {
-    "test": "./node_modules/.bin/jest",
-    "build": "./node_modules/.bin/babel index.js -d dist"
+    "build": "babel index.js -d dist",
+    "flow": "flow check",
+    "lint": "eslint src",
+    "test": "yarn run flow && yarn run lint && yarn run test:unit",
+    "test:unit": "jest"
   },
   "keywords": [
     "jest",
@@ -24,9 +27,27 @@
   "author": "Christian Maniewski <chmanie@fastmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "@colony/eslint-config-colony": "^4.0.1",
     "babel-cli": "^6.24.1",
+    "babel-eslint": "^8.2.1",
     "babel-jest": "^19.0.0",
     "babel-preset-es2015": "^6.24.1",
-    "jest": "^19.0.2"
+    "eslint": "^4.17.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-flowtype": "^2.44.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-prettier": "^2.6.0",
+    "flow-bin": "^0.66.0",
+    "jest": "^19.0.2",
+    "jest-flow-transform": "^1.0.1",
+    "prettier": "^1.10.2"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "collectCoverage": true,
+    "transform": {
+      "^.+\\.js(?:\\.flow)?$": "jest-flow-transform"
+    }
   }
 }

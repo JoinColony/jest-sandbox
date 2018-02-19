@@ -1,4 +1,8 @@
-import createSandbox, { JestSandbox } from '../index.js';
+/* @flow */
+/* eslint-env jest */
+/* eslint-disable no-underscore-dangle, class-methods-use-this */
+
+import createSandbox, { JestSandbox } from '..';
 
 test('Initialises correctly', () => {
   const sandbox = new JestSandbox();
@@ -74,7 +78,7 @@ test('Restores all spies', () => {
       return 'hello';
     }
   }
-  const spy = sandbox
+  sandbox
     .spyOn(CoolClass.prototype, 'hello')
     .mockImplementation(() => 'yo, homie');
   const cool = new CoolClass();
