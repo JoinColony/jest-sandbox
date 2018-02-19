@@ -1,9 +1,12 @@
 ## eslint-import-resolver-jest changelog
 
-### [ [>](https://github.com/JoinColony/jest-sandbox/tree/v1.1.1) ] 1.1.1 / 19.02.2018
+### [ [>](https://github.com/JoinColony/jest-sandbox/tree/v1.1.2) ] 1.1.2 / 19.02.2018
 * Some tooling improvements
 * Added a changelog
 * Added code of conduct
+
+### [ [>](https://github.com/JoinColony/jest-sandbox/tree/v1.1.1) ] 1.1.1 / 03.08.2017
+* Add forgotten build to package
 
 ### [ [>](https://github.com/JoinColony/jest-sandbox/tree/v1.1.0) ] 1.1.0 / 25.06.2017
 * Support mockRestore() function
