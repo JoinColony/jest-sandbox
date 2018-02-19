@@ -1,8 +1,9 @@
 /* @flow */
 /* eslint-env jest */
+/* global JestMockFn */
 
-export class JestSandbox {
-  _mocks: Array<Function>;
+class JestSandbox {
+  _mocks: Array<JestMockFn<*, *>>;
   constructor() {
     this._mocks = [];
   }
@@ -32,4 +33,4 @@ export class JestSandbox {
 
 const createSandbox = () => new JestSandbox();
 
-export default createSandbox;
+module.exports = createSandbox;
