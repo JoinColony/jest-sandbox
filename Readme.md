@@ -2,7 +2,7 @@
 
 Track jest spies and stubs easily.
 
-[![Build Status](https://travis-ci.org/JoinColony/jest-sandbox.svg?branch=master)](https://travis-ci.org/JoinColony/jest-sandbox)
+[![CircleCI](https://circleci.com/gh/JoinColony/jest-sandbox.svg?style=svg)](https://circleci.com/gh/JoinColony/jest-sandbox)
 
 The one feature I really missed when switching from [sinon.js](http://sinonjs.org) to jest spies and mocks was _[sandboxes](http://sinonjs.org/releases/v2.1.0/sandbox/)_. They allow you to create as many spies and stubs as you want without having to track them all and clear them manually.
 
