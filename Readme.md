@@ -1,5 +1,7 @@
 # jest-sandbox
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/JoinColony/jest-sandbox.svg)](https://greenkeeper.io/)
+
 Track jest spies and stubs easily.
 
 [![CircleCI](https://circleci.com/gh/JoinColony/jest-sandbox.svg?style=svg)](https://circleci.com/gh/JoinColony/jest-sandbox)
